@@ -8,7 +8,9 @@ import {GearService} from '../../services/gear.service';
   styleUrls: ['./gearset.component.scss']
 })
 export class GearsetComponent implements OnInit {
-  slot: string
+  displayGearSelection = true;
+
+  slot: string;
   slots = [
     'Main',
     'Sub',
@@ -27,8 +29,6 @@ export class GearsetComponent implements OnInit {
     'Legs',
     'Feet'
   ]
-  private displayGearSelection = false;
-  private setSaved = false;
   private gearImageUrls = {
     Main: "",
     Sub: "",
@@ -47,7 +47,7 @@ export class GearsetComponent implements OnInit {
     Back: "",
   }
 
-  constructor(private gearService: GearService, private gearSetService: SetService) { }
+  constructor(private gearService: GearService, private setService: SetService) { }
 
   ngOnInit() {
 
@@ -55,22 +55,17 @@ export class GearsetComponent implements OnInit {
 
   selectGearItem(slot: string) {
     this.slot = slot;
-    this.displayGearSelection = true;
+    this.setService.setActiveSlot(this.slot);
   }
 
   itemSaved() {
     this.gearService.getSelectedItem().subscribe(x => {
-      this.gearSetService.updateSet(this.slot, x.name);
-      this.gearImageUrls[this.slot] = 'https://static.ffxiah.com/images/icon/'+ x.itemId +'.png';
-    })
-    this.displayGearSelection = false;
-  }
-
-  editSet() {
-    this.setSaved = false;
+      this.setService.updateSet(this.slot, x.name);
+      this.gearImageUrls[this.slot] = 'https://static.ffxiah.com/images/icon/' + x.itemId + '.png';
+    });
   }
 
   submitSet() {
-    this.gearSetService.postActiveGearSet();
+    this.setService.postActiveGearSet();
   }
 }

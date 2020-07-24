@@ -23,7 +23,9 @@
       <button mat-raised-button *ngIf="setSaved" [disabled]="displayGearSelection" (click)="editSet()">Edit Set</button>
     </div>
   </div>
-  <div class="gear-selection">
-    <app-gear-selection *ngIf="displayGearSelection" [slot]="slot" (itemSaved)="itemSaved()"></app-gear-selection>
+  <div class="column">
+    <div *ngIf="displayGearSelection" class="gear-selection">
+      <app-gear-selection (itemSaved)="itemSaved()"></app-gear-selection>
+    </div>
   </div>
 </div>

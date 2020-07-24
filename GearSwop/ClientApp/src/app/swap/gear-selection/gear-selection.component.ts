@@ -16,16 +16,20 @@ export class GearSelectionComponent implements OnInit {
   autocompleteOptions: string[];
 
   constructor(private gearService: GearService, private setService: SetService, private swapService: SwapService ) { }
-  @Input() slot: string;
   @Output() itemSaved = new EventEmitter<boolean>();
 
   currentJob: string;
+  slot: string;
 
   ngOnInit() {
     this.swapService.getCharacterJob().subscribe(x => this.currentJob = x);
+    this.setService.getActiveSlot().subscribe(x => this.slot = x);
   }
 
   saveSelectedItem() {
+    console.log("saveSelectedItem Called");
+    console.log(this.slot);
+    console.log(this.gearSelector.value);
     this.setService.updateSet(this.slot, this.gearSelector.value);
     this.itemSaved.next(false);
   }
@@ -38,6 +42,5 @@ export class GearSelectionComponent implements OnInit {
   getGearSuggestions(){
     this.gearService.GetGearAutocompleteSuggestions(this.currentJob, this.slot, this.gearSelector.value)
       .subscribe(x => this.autocompleteOptions = x);
-
   }
 }
