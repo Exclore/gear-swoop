@@ -10,26 +10,17 @@ import {IItemMap} from '../Interfaces/ItemMap';
 })
 export class GearService {
 
-  private currentSelectedItem = new BehaviorSubject<IGearItem>(null);
-
   private itemMap;
 
   constructor(private http: HttpClient) {
     this.GetItemMap().subscribe(x => this.itemMap = x);
   }
 
-  updateSelectedItem(itemName) {
-    let itemId = this.translateItemId(itemName);
-    this.GetGearInfoById(itemId).subscribe(x => {
-      this.currentSelectedItem.next(x);
-    });
+  getGearInfoByItemName(itemName) {
+    return this.GetGearInfoById(this.translateItemId(itemName));
   }
 
-  getSelectedItem() {
-    return this.currentSelectedItem.asObservable();
-  }
-
-  translateItemId(itemName) {
+  private translateItemId(itemName) {
     let lowercaseItemName = itemName.toLowerCase();
     return this.itemMap.find(x => x.itemLongName.toLowerCase() == lowercaseItemName).itemId;
   }
@@ -45,7 +36,7 @@ export class GearService {
       );
   }
 
-  GetGearInfoById(itemId): Observable<IGearItem> {
+  private GetGearInfoById(itemId): Observable<IGearItem> {
     const url = `gearInfo/${itemId}`;
 
     return this.http.get(url)
@@ -56,7 +47,7 @@ export class GearService {
       );
   }
 
-  GetItemMap(): Observable<IItemMap[]> {
+  private GetItemMap(): Observable<IItemMap[]> {
     const url = `itemMap`;
 
     return this.http.get(url)

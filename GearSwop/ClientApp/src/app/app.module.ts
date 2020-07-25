@@ -10,7 +10,6 @@ import {SwapComponent} from './swap/swap.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GearsetComponent } from './swap/gearset/gearset.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { GearSelectionComponent } from './swap/gear-selection/gear-selection.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -30,7 +29,6 @@ import { ActionCategoryComponent } from './swap/action-category/action-category.
     FetchDataComponent,
     SwapComponent,
     GearsetComponent,
-    GearSelectionComponent,
     NavMenuComponent,
     ItemDisplayComponent,
     ActionCategoryComponent

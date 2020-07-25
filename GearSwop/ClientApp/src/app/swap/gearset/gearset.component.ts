@@ -16,7 +16,6 @@ export class GearsetComponent implements OnInit {
   itemPreviewData: IGearItem;
   autocompleteOptions: string[];
   currentJob: string;
-  selectedGearItem: IGearItem;
   displayGearSelection = false;
   isActiveSet = false;
   slot: string;
@@ -71,14 +70,14 @@ export class GearsetComponent implements OnInit {
   toggleActiveSet() {
     this.isActiveSet = true;
   }
-
+  
   itemSelected($event) {
-    this.gearService.updateSelectedItem($event.option.value);
-    this.gearService.getSelectedItem().subscribe(x => {
+    this.gearService.getGearInfoByItemName($event.option.value).subscribe(x => {
       this.itemPreviewData = x;
       this.gearImageUrls[this.slot] = 'https://static.ffxiah.com/images/icon/' + x.itemId + '.png';
       this.setService.updateSet(this.slot, $event.option.value);
-    });
+    })
+
   }
 
   getGearSuggestions() {
