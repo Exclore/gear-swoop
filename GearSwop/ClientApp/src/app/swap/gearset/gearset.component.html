@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <mat-card class="gear-selection-card">
+  <mat-card *ngIf="displayGearSelection" class="gear-selection-card">
     <mat-card-header>
       <mat-card-title>Pick an item for the {{this.slot}} slot</mat-card-title>
     </mat-card-header>

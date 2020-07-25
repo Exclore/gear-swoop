@@ -17,7 +17,7 @@ export class GearsetComponent implements OnInit {
   autocompleteOptions: string[];
   currentJob: string;
   selectedGearItem: IGearItem;
-  displayGearSelection = true;
+  displayGearSelection = false;
   isActiveSet = false;
   slot: string;
   slots = [
@@ -63,6 +63,7 @@ export class GearsetComponent implements OnInit {
   }
 
   selectGearItem(slot: string) {
+    this.displayGearSelection = true;
     this.slot = slot;
     this.setService.setActiveSlot(this.slot);
   }
