@@ -1,6 +1,6 @@
 .gear-set-layout {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .gear-select-layout {
@@ -82,10 +82,20 @@
 
 }
 
+.close-button {
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 2px;
+    right: 10px;
+}
+
 .gear-selection-card {
   width: 400px;
   max-width: 100%;
   margin-left: 20px;
+  position: relative;
 }
 
 .flex-container {

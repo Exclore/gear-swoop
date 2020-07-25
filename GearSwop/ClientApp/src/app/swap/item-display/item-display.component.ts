@@ -16,6 +16,10 @@ export class ItemDisplayComponent implements OnInit {
     this.getItemToDisplay();
   }
 
+  ngOnChanges() {
+    this.getItemToDisplay();
+  }
+
   getItemToDisplay() {
     this.displayedItem = this.itemPreviewData;
     this.displayedItemImageURL = this.getImageUrl();

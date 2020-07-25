@@ -48,7 +48,8 @@ export class SwapService {
   postSwap() {
     this.processSwap();
     let swapJson = JSON.stringify(this.swap);
-    console.log(swapJson);
+    var cookie = ['gearSwop' + swapJson, + '; domain=.', window.location.host.toString(), '; path=/;'].join('');
+    document.cookie = cookie;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',

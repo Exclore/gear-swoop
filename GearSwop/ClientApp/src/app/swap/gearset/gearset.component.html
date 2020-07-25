@@ -25,6 +25,7 @@
   <mat-card *ngIf="displayGearSelection" class="gear-selection-card">
     <mat-card-header>
       <mat-card-title>Pick an item for the {{this.slot}} slot</mat-card-title>
+      <div class="close-button" (click)="closeGearSelection()">x</div>
     </mat-card-header>
     <div class="flex-container">
       <mat-card-content>

@@ -18,6 +18,7 @@ export class GearsetComponent implements OnInit {
   currentJob: string;
   displayGearSelection = false;
   isActiveSet = false;
+  setSaved = false;
   slot: string;
   slots = [
     'Main',
@@ -67,6 +68,10 @@ export class GearsetComponent implements OnInit {
     this.setService.setActiveSlot(this.slot);
   }
 
+  closeGearSelection() {
+    this.displayGearSelection = false;
+  }
+
   toggleActiveSet() {
     this.isActiveSet = true;
   }
@@ -86,6 +91,11 @@ export class GearsetComponent implements OnInit {
   }
 
   submitSet() {
+    this.setSaved = true;
     this.setService.postActiveGearSet();
+  }
+
+  editSet() {
+    this.setSaved = false;
   }
 }

@@ -20,7 +20,7 @@ export class GearService {
     return this.GetGearInfoById(this.translateItemId(itemName));
   }
 
-  private translateItemId(itemName) {
+  translateItemId(itemName) {
     let lowercaseItemName = itemName.toLowerCase();
     return this.itemMap.find(x => x.itemLongName.toLowerCase() == lowercaseItemName).itemId;
   }
