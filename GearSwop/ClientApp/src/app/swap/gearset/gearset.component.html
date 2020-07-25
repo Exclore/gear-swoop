@@ -1,31 +1,51 @@
-<div class="gear-select-layout">
-  <div class="column">
-    <form class="set-title">
-      <mat-form-field class="title-form">
-        <mat-label>Set Name</mat-label>
-        <input matInput placeholder="Set Name" name="setNamer">
-      </mat-form-field>
-    </form>
-
-    <div class="gear-set-display">
-      <div class="gear-square" *ngFor="let slot of slots">
-        <div (click)="selectGearItem(slot)">
-          <div>
+<div class="gear-set-layout">
+  <div class="gear-select-layout">
+    <div class="column" (click)="toggleActiveSet()">
+      <form class="set-title">
+        <mat-form-field class="title-form">
+          <mat-label>Set Name</mat-label>
+          <input matInput placeholder="Set Name" name="setNamer">
+        </mat-form-field>
+      </form>
+      <div class="gear-set-display">
+        <div class="gear-square" *ngFor="let slot of slots">
+          <div (click)="selectGearItem(slot)">
             <div class="placeholder-text">{{slot}}</div>
             <img *ngIf="gearImageUrls[slot]" [src]="gearImageUrls[slot]" alt=slot class="gear-image">
           </div>
         </div>
       </div>
+      <div class="save-button">
+        <button mat-raised-button *ngIf="!setSaved" [disabled]="displayGearSelection" (click)="submitSet()">Save Set</button>
+        <button mat-raised-button *ngIf="setSaved" [disabled]="displayGearSelection" (click)="editSet()">Edit Set</button>
+      </div>
     </div>
+  </div>
 
-    <div class="save-button">
-      <button mat-raised-button *ngIf="!setSaved" [disabled]="displayGearSelection" (click)="submitSet()">Save Set</button>
-      <button mat-raised-button *ngIf="setSaved" [disabled]="displayGearSelection" (click)="editSet()">Edit Set</button>
+  <mat-card class="gear-selection-card">
+    <mat-card-header>
+      <mat-card-title>Pick an item for the {{this.slot}} slot</mat-card-title>
+    </mat-card-header>
+    <div class="flex-container">
+      <mat-card-content>
+        <form>
+          <mat-form-field>
+            <input type="text"
+                   placeholder="Pick one"
+                   aria-label="Number"
+                   matInput
+                   [formControl]="gearSelector"
+                   [matAutocomplete]="auto"
+                   (change)="getGearSuggestions()">
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="itemSelected($event)">
+              <mat-option *ngFor="let option of autocompleteOptions" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
     </div>
-  </div>
-  <div class="column">
-    <div *ngIf="displayGearSelection" class="gear-selection">
-      <app-gear-selection (itemSaved)="itemSaved()"></app-gear-selection>
-    </div>
-  </div>
+    <app-item-display *ngIf="itemPreviewData"></app-item-display>
+  </mat-card>
 </div>

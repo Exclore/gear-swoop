@@ -17,7 +17,7 @@ export class SwapComponent {
     characterName: new FormControl({value: '', disabled: this.jobNameSet}, Validators.required),
     job: new FormControl({value: '', disabled: this.jobNameSet}, Validators.required),
   })
-
+  displayGearSelection = true;
   actionCategories = {};
 
   constructor(private swapService: SwapService) {  }

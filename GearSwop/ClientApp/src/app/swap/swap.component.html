@@ -18,11 +18,14 @@
 </form>
 <br>
 
-<div *ngIf="jobNameSet" class="action-category-layout">
-  <div *ngFor="let actionCategory of actionCategories | keyvalue">
-    <app-action-category [actionCategoryName]="actionCategory.value" [spellMap]="actionCategory.key"></app-action-category>
+<div class="action-category-gear-selection-layout">
+  <div *ngIf="jobNameSet" class="action-category-layout">
+    <div *ngFor="let actionCategory of actionCategories | keyvalue">
+      <app-action-category [actionCategoryName]="actionCategory.value" [spellMap]="actionCategory.key"></app-action-category>
+    </div>
   </div>
 </div>
+
 <br>
 <div>
   <button mat-button (click)="submitSwap()">Submit Swap</button>
