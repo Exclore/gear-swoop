@@ -23,4 +23,7 @@ body {
 
 .action-category-layout {
   padding-left: 4%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

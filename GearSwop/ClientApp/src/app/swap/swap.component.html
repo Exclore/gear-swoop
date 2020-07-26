@@ -18,15 +18,23 @@
 </form>
 <br>
 
-<div class="action-category-gear-selection-layout">
+<!--<div class="action-category-gear-selection-layout">
   <div *ngIf="jobNameSet" class="action-category-layout">
     <div *ngFor="let actionCategory of actionCategories | keyvalue">
       <app-action-category [actionCategoryName]="actionCategory.value" [spellMap]="actionCategory.key"></app-action-category>
     </div>
   </div>
+</div>-->
+
+
+<div *ngIf="jobNameSet" class="action-category-gear-selection-layout">
+  <div class="action-category-layout">
+    <app-gearset *ngFor="let set of sets"></app-gearset>
+    <button mat-button (click)="addGearSetComponent()">Add a set</button>
+    <br>
+  </div>
 </div>
 
-<br>
-<div>
+<div *ngIf="jobNameSet">
   <button mat-button (click)="submitSwap()">Submit Swap</button>
 </div>

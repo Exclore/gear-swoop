@@ -19,21 +19,24 @@ export class SwapComponent {
   })
   displayGearSelection = true;
   actionCategories = {};
+  sets = [];
 
   constructor(private swapService: SwapService) {  }
 
   submitNameJob() {
-    console.log(JobTemplates, this.jobNameForm.get('job').value);
-    console.log(JobTemplates[this.jobNameForm.get('job').value]);
     this.jobNameForm.disable();
     this.swapService.setNameJob(this.jobNameForm.value);
-    this.actionCategories = JobTemplates[this.jobNameForm.get('job').value];
+    //this.actionCategories = JobTemplates[this.jobNameForm.get('job').value];
     this.jobNameSet = true;
   }
 
   editNameJob() {
     this.jobNameForm.enable();
     this.jobNameSet = false;
+  }
+
+  addGearSetComponent() {
+    this.sets = [...this.sets, this.sets.length];
   }
 
   submitSwap() {
