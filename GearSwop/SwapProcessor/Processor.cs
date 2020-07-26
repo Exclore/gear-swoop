@@ -40,8 +40,7 @@ namespace GearSwop.SwapProcessor
             foreach(GearSet rawSet in rawSets)
             {
                 rawSet.Mode = "Midcast";
-                rawSet.SetName = "Cure";
-                var processedSet = $@"sets.{rawSet.Mode}.{rawSet.SetName} = {{
+                var processedSet = $@"sets.{rawSet.SetName} = {{
     main=""{rawSet.Main}"",
     sub=""{rawSet.Sub}"",
     ranged=""{rawSet.Ranged}"",

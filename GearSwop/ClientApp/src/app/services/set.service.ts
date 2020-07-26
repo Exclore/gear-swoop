@@ -46,6 +46,10 @@ export class SetService {
     return this.activeSlot;
   }
 
+  updateSetName(setName: string) {
+    this.activeSet.SetName = setName;
+  }
+
   get getActiveSet() {
     return this.activeSet;
   }

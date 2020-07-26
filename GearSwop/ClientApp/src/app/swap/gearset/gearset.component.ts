@@ -20,6 +20,7 @@ export class GearsetComponent implements OnInit {
   isActiveSet = false;
   setSaved = false;
   slot: string;
+  setName: string;
   slots = [
     'Main',
     'Sub',
@@ -81,8 +82,7 @@ export class GearsetComponent implements OnInit {
       this.itemPreviewData = x;
       this.gearImageUrls[this.slot] = 'https://static.ffxiah.com/images/icon/' + x.itemId + '.png';
       this.setService.updateSet(this.slot, $event.option.value);
-    })
-
+    });
   }
 
   getGearSuggestions() {
@@ -92,6 +92,7 @@ export class GearsetComponent implements OnInit {
 
   submitSet() {
     this.setSaved = true;
+    this.setService.updateSetName(this.setName);
     this.setService.postActiveGearSet();
   }
 
