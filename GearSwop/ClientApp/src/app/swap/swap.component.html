@@ -16,7 +16,6 @@
   <button *ngIf="!jobNameSet" mat-button type="submit" [disabled]="!jobNameForm.valid">Get Started!</button>
   <button *ngIf="jobNameSet" (click)="editNameJob()" mat-button>Edit Name and Job</button>
 </form>
-<br>
 
 <div class="action-category-gear-selection-layout">
   <div *ngIf="jobNameSet" class="action-category-layout">
@@ -25,15 +24,6 @@
     </div>
   </div>
 </div>
-
-
-<!--<div *ngIf="jobNameSet" class="action-category-gear-selection-layout">
-  <div class="action-category-layout">
-    <app-gearset *ngFor="let set of sets"></app-gearset>
-    <button mat-button (click)="addGearSetComponent()">Add a set</button>
-    <br>
-  </div>
-</div>-->
 
 <div *ngIf="jobNameSet">
   <button mat-button (click)="submitSwap()">Submit Swap</button>
