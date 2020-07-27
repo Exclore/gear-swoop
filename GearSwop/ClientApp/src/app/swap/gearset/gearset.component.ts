@@ -86,6 +86,7 @@ export class GearsetComponent implements OnInit {
   }
 
   getGearSuggestions() {
+    console.log(this.currentJob, this.slot, this.gearSelector.value);
     this.gearService.GetGearAutocompleteSuggestions(this.currentJob, this.slot, this.gearSelector.value)
       .subscribe(x => this.autocompleteOptions = x);
   }

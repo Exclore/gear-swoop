@@ -29,6 +29,22 @@ namespace GearSwop.GearRepository
 
         public List<string> GetGearSuggestions(string job, string slot, string query)
         {
+            if(slot == "Ear1")
+            {
+                slot = "Left Ear";
+            }
+            if(slot == "Ear2")
+            {
+                slot = "Right Ear";
+            }
+            if (slot == "Ring1")
+            {
+                slot = "Left Ring";
+            }
+            if(slot == "Ring2")
+            {
+                slot = "Right Ring";
+            }
             query = query.ToLower();
             var reducedMap = MappedItems.Where(x => x.Jobs.Contains(job))
                 .Where(x => x.ItemSlot.Contains(slot))
