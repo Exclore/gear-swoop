@@ -26,7 +26,7 @@ export class SwapComponent {
   submitNameJob() {
     this.jobNameForm.disable();
     this.swapService.setNameJob(this.jobNameForm.value);
-    //this.actionCategories = JobTemplates[this.jobNameForm.get('job').value];
+    this.actionCategories = JobTemplates[this.jobNameForm.get('job').value];
     this.jobNameSet = true;
   }
 
