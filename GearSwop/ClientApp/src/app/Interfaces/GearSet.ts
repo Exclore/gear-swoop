@@ -1,6 +1,7 @@
-﻿import {IGearItem} from './GearItem';
+import {IGearItem} from './GearItem';
 
 export interface IGearSet {
+  Mode: string;
   SetName: string;
   Main: IGearItem;
   Sub: IGearItem;

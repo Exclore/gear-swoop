@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class SetService {
   activeSet: IGearSet = new class implements IGearSet {
+    Mode: string;
     SetName: string;
     Ammo: IGearItem;
     Back: IGearItem;
@@ -48,6 +49,10 @@ export class SetService {
 
   updateSetName(setName: string) {
     this.activeSet.SetName = setName;
+  }
+
+  updateSetMode(mode: string) {
+    this.activeSet.Mode = mode;
   }
 
   get getActiveSet() {

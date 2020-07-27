@@ -21,6 +21,7 @@ export class GearsetComponent implements OnInit {
   setSaved = false;
   slot: string;
   setName: string;
+  setMode: string;
   slots = [
     'Main',
     'Sub',
@@ -84,6 +85,10 @@ export class GearsetComponent implements OnInit {
       this.setService.updateSet(this.slot, $event.option.value);
     });
   }
+  modeSelection($event) {
+    console.log($event);
+    this.setMode = $event;
+  }
 
   getGearSuggestions() {
     console.log(this.currentJob, this.slot, this.gearSelector.value);
@@ -93,6 +98,7 @@ export class GearsetComponent implements OnInit {
 
   submitSet() {
     this.setSaved = true;
+    this.setService.updateSetMode(this.setMode);
     this.setService.updateSetName(this.setName);
     this.setService.postActiveGearSet();
   }

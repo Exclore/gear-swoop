@@ -3,6 +3,13 @@
     <div class="column" (click)="toggleActiveSet()">
       <form class="set-title">
         <mat-form-field class="title-form">
+          <mat-label>Set Mode</mat-label>
+          <mat-select [(ngModel)]="setMode" (change)="modeSelection($event.value)" name="setModeSelector">
+            <mat-option value="Precast">Precast</mat-option>
+            <mat-option value="Midcast">Midcast</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
           <mat-label>Set Name</mat-label>
           <input matInput [(ngModel)]="setName" placeholder="Set Name" name="setNamer">
         </mat-form-field>
