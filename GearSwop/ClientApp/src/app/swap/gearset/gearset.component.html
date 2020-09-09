@@ -6,7 +6,7 @@
         <form (ngSubmit)="submitSetSetup()" #gearSetSetup="ngForm" class="set-title">
           <mat-form-field class="title-form">
             <mat-label>Set Mode</mat-label>
-            <mat-select [(ngModel)]="model.setMode" (change)="modeSelection($event.value)" name="setModeSelector">
+            <mat-select [(ngModel)]="setMode" (change)="modeSelection($event.value)" name="setModeSelector">
               <mat-option value="Precast">Precast</mat-option>
               <mat-option value="Midcast">Midcast</mat-option>
               <mat-option value="idle">Idle</mat-option>
@@ -15,14 +15,13 @@
           </mat-form-field>
           <mat-form-field>
             <mat-label>Set Name</mat-label>
-            <input matInput [(ngModel)]="model.setName" placeholder="Set Name" name="setNamer">
+            <input matInput [(ngModel)]="setName" placeholder="Set Name" name="setNamer">
           </mat-form-field>
           <div class="save-button">
             <button mat-raised-button type="submit">Create Set</button>
           </div>
         </form>
       </div>
-
       <div *ngIf="formComplete">
         <div class="set-name">
           {{model.setName}}

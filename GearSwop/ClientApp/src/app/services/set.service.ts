@@ -60,6 +60,8 @@ export class SetService {
   }
 
   postActiveGearSet() {
+    console.log(this.activeSet.Mode);
+    console.log(this.activeSet.SetName);
     this.swapService.addSetToSwap(this.activeSet);
   }
 }
