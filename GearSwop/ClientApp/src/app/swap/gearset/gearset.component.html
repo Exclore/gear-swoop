@@ -1,30 +1,45 @@
 <div class="gear-set-layout">
   <div class="gear-select-layout">
-    <div class="column" (click)="toggleActiveSet()">
-      <form class="set-title">
-        <mat-form-field class="title-form">
-          <mat-label>Set Mode</mat-label>
-          <mat-select [(ngModel)]="setMode" (change)="modeSelection($event.value)" name="setModeSelector">
-            <mat-option value="Precast">Precast</mat-option>
-            <mat-option value="Midcast">Midcast</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Set Name</mat-label>
-          <input matInput [(ngModel)]="setName" placeholder="Set Name" name="setNamer">
-        </mat-form-field>
-      </form>
-      <div class="gear-set-display">
-        <div class="gear-square" *ngFor="let slot of slots">
-          <div (click)="selectGearItem(slot)">
-            <div class="placeholder-text">{{slot}}</div>
-            <img *ngIf="gearImageUrls[slot]" [src]="gearImageUrls[slot]" alt=slot class="gear-image">
+    <div class="column">
+
+      <div *ngIf="!formComplete">
+        <form (ngSubmit)="submitSetSetup()" #gearSetSetup="ngForm" class="set-title">
+          <mat-form-field class="title-form">
+            <mat-label>Set Mode</mat-label>
+            <mat-select [(ngModel)]="model.setMode" (change)="modeSelection($event.value)" name="setModeSelector">
+              <mat-option value="Precast">Precast</mat-option>
+              <mat-option value="Midcast">Midcast</mat-option>
+              <mat-option value="idle">Idle</mat-option>
+              <mat-option value="engaged">Engaged</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Set Name</mat-label>
+            <input matInput [(ngModel)]="model.setName" placeholder="Set Name" name="setNamer">
+          </mat-form-field>
+          <div class="save-button">
+            <button mat-raised-button type="submit">Create Set</button>
+          </div>
+        </form>
+      </div>
+
+      <div *ngIf="formComplete">
+        <div class="set-name">
+          {{model.setName}}
+        </div>
+        <div class="gear-set-display">
+          <div class="gear-square" *ngFor="let slot of slots">
+            <div (click)="selectGearItem(slot)">
+              <div class="placeholder-text">{{slot}}</div>
+              <img *ngIf="gearImageUrls[slot]" [src]="gearImageUrls[slot]" alt=slot class="gear-image">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="save-button">
-        <button mat-raised-button *ngIf="!setSaved" [disabled]="displayGearSelection" (click)="submitSet()">Save Set</button>
-        <button mat-raised-button *ngIf="setSaved" [disabled]="displayGearSelection" (click)="editSet()">Edit Set</button>
+
+        <div class="save-button">
+          <button mat-raised-button *ngIf="!setSaved" [disabled]="displayGearSelection" (click)="submitSet()">Save Set</button>
+          <button mat-raised-button *ngIf="setSaved" [disabled]="displayGearSelection" (click)="editSet()">Edit Set</button>
+        </div>
       </div>
     </div>
   </div>

@@ -35,6 +35,10 @@
   }
 }
 
+.set-name {
+  font-size: 20px;
+}
+
 .gear-set-display {
   margin-left: 12%;
   margin-right: 3%;
@@ -63,8 +67,8 @@
   }
 
   .gear-square > div {
-    height:32px;
-    width:32px;
+    height: 32px;
+    width: 32px;
   }
 
   .gear-image {
@@ -77,9 +81,7 @@
 
   .gear-square > div:hover {
     border: solid 2px #9ec1e588;
-
   }
-
 }
 
 .close-button {

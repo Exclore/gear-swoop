@@ -22,6 +22,8 @@ export class GearsetComponent implements OnInit {
   slot: string;
   setName: string;
   setMode: string;
+  formComplete = false;
+  model = {};
   slots = [
     'Main',
     'Sub',
@@ -94,6 +96,9 @@ export class GearsetComponent implements OnInit {
     console.log(this.currentJob, this.slot, this.gearSelector.value);
     this.gearService.GetGearAutocompleteSuggestions(this.currentJob, this.slot, this.gearSelector.value)
       .subscribe(x => this.autocompleteOptions = x);
+  }
+  submitSetSetup() {
+    this.formComplete = true;
   }
 
   submitSet() {
