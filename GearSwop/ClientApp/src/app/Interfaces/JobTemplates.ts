@@ -1,155 +1,151 @@
-export var JobTemplates: {[key: string]: {[key:string]:string} } = {
+export var JobTemplates: {[key: string]: {[key:string]: string[]} } = {
   'BLM': {
-    JA: 'Job Ability Sets',
-    FC: 'FastCast Sets',
-    ElementalMagic: 'Elemental Magic Sets',
-    Idle: 'Idle Sets'
+    'FastCast Set': ['FC'],
+    'Elemental Magic Sets': ['Low Tier Nukes', 'High Tier Nukes', 'Burst Nukes'],
+    'Idle Set': ['Idle']
   },
   'BLU': {
-    JA: 'Job Ability Sets',
-    FC: 'FastCast Sets',
-    BlueMagic: 'Blue Magic Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'FastCast Set': ['FC'],
+    'Job Ability Sets': [], //BLU JAs
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //BLU WS
+    'Idle Sets': ['Idle']
   },
   'BRD': {
-    JA: 'Job Ability Sets',
-    FC: 'FastCast Sets',
-    BardSong: 'Singing Sets',
-    Cure: 'Cure Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //BRD JAs
+    'FastCast Set': ['FC'],
+    'Singing Sets': ['Song Buff', 'Song Debuff'],
+    'Idle Sets': ['Idle']
   },
   'BST': {
-    JA: 'Job Ability Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //BST JAs
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //BST WS
+    'Idle Sets': ['Idle']
   },
   'COR': {
-    JA: 'Job Ability Sets',
-    RA: 'Ranged Attack Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //COR JAs
+    'Ranged Attack Sets': ['Pre Shot', 'Mid Shot'],
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //COR WS
+    'Idle Sets': ['Idle']
   },
   'DNC': {
-    JA: 'Job Ability Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //DNC JAs
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //DNC WS
+    'Idle Sets': ['Idle']
   },
   'DRG': {
-    JA: 'Job Ability Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //DRG JAs
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //DRG WS
+    'Idle Sets': ['Idle']
   },
   'DRK': {
-    JA: 'Job Ability Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //DRK JAs
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //DRK WS
+    'Idle Sets': ['Idle']
   },
   'GEO': {
-    JA: 'Job Ability Sets',
-    FC: 'FastCast Sets',
-    Geomancy: 'Geomancy Sets',
-    ElementalMagic: 'Elemental Magic Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //GEO JAs
+    'FastCast Set': ['FC'],
+    'Geomancy Sets': ['Geomancy'],
+    'Elemental Magic Sets': ['Low Tier Nukes', 'High Tier Nukes', 'Burst Nukes'],
+    'Idle Sets': ['Idle']
   },
   'MNK': {
-    JA: 'Job Ability Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //MNK JAs
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //MNK WS
+    'Idle Sets': ['Idle']
   },
   'NIN': {
-    JA: 'Job Ability Sets',
-    FC: 'FastCast Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //NIN JAs
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //NIN WS
+    'Idle Sets': ['Idle'],
+    'FastCast Set': ['FC, Utsusemi'],
+    'Ninjitsu': ['Elemental', 'Utsusemi']
   },
   'PLD': {
-    JA: 'Job Ability Sets',
-    FC: 'FastCast Sets',
-    Cure: 'Cure Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'FastCast Set': ['FC'],
+    'Cure Sets': ['Cure'],
+    'Job Ability Sets': [], //PLD JAs
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //PLD WS
+    'Idle Sets': ['Idle']
   },
   'PUP': {
-    JA: 'Job Ability Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //PUP JAs
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //PUP WS
+    'Idle Sets': ['Idle']
   },
   'RDM': {
-    JA: 'Job Ability Sets',
-    FC: 'FastCast Sets',
-    Cure: 'Cure Sets',
-    ElementalMagic: 'Elemental Magic Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'Cure Sets': ['Cure'],
+    'Enfeeble': ['Enfeebling Set'],
+    'Enhancing': ['Enhancing'],
+    'FastCast Set': ['FC'],
+    'Job Ability Sets': [], //PLD JAs
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //PLD WS
+    'Idle Sets': ['Idle']
   },
   'RNG': {
-    JA: 'Job Ability Sets',
-    RA: 'Ranged Attack Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //RNG JAs
+    'Ranged Attack Sets': ['Pre Shot', 'Mid Shot'],
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //RNG WS
+    'Idle Sets': ['Idle']
   },
   'RUN': {
-    JA: 'Job Ability Sets',
-    FC: 'FastCast Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'FastCast Sets': ['FC'],
+    'Job Ability Sets': [], //PUP JAs
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //PUP WS
+    'Idle Sets': ['Idle']
   },
   'SAM': {
-    JA: 'Job Ability Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //SAM JAs
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //SAM WS
+    'Idle Sets': ['Idle']
   },
   'SCH': {
-    JA: 'Job Ability Sets',
-    FC: 'FastCast Sets',
-    ElementalMagic: 'Elemental Magic Sets',
-    Cure: 'Cure Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //SCH JAs
+    'FastCast Set': ['FC'],
+    'Elemental Magic Sets': ['Low Tier Nukes', 'High Tier Nukes', 'Burst Nukes'],
+    'Idle Set': ['Idle'],
+    'Cure Sets': ['Cure']
   },
   'WAR': {
-    JA: 'Job Ability Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //WAR JAs
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //WAR WS
+    'Idle Set': ['Idle']
   },
   'SMN': {
-    JA: 'Job Ability Sets',
-    FC: 'FastCast Sets',
-    BloodPactWard: 'Blood Pact Ward Sets',
-    BloodPactRage: 'Blood Pact Rage Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //SMN JAs
+    'FastCast Set': ['FC'],
+    'Blood Pact Ward Sets': ['Buffing BP'],
+    'Blood Pact Rage Sets': ['Physical', 'Hybrid', 'Magical'],
+    'Idle Set': ['Idle']
   },
   'THF': {
-    JA: 'Job Ability Sets',
-    Engaged: 'Engaged Sets',
-    WS: 'Weaponskill Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //THF JAs
+    'Engaged Sets': ['Engaged'],
+    'Weaponskill Sets': [], //THF WS
+    'Idle Sets': ['Idle']
   },
   'WHM': {
-    JA: 'Job Ability Sets',
-    FC: 'FastCast Sets',
-    Cure: 'Cure Sets',
-    Curaga: 'Curaga Sets',
-    StatusRemoval: 'Status Removal Sets',
-    BarElemental: 'Elemental Barspell Sets',
-    BarStatus: 'Status Barspell Sets',
-    Idle: 'Idle Sets'
+    'Job Ability Sets': [], //WHM JAs
+    'FastCast Set': ['FC'],
+    'Cure Sets': ['Cure'],
+    'Curaga Sets': ['Curaga'],
+    'Status Removal Sets': ['Status Removal', 'Erase'],
+    'Barspell Sets': ['Status Barspells', 'Elemental Barspells'],
+    'Idle Sets': ['Idle']
   }
 }
