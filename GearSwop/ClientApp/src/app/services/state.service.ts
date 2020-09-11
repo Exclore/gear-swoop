@@ -50,6 +50,10 @@ export class StateService {
     }
   }
 
+  getRebuildState() {
+    return of(this.cookieService.check('GearSwoopState'));
+  }
+
   getRebuild() {
     return of(this.state);
   }
