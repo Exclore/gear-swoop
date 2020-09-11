@@ -4,6 +4,7 @@ import {IGearSet} from '../Interfaces/GearSet';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import { ISwap } from '../Interfaces/Swap';
+import { StateService } from './state.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class SwapService {
     CharacterJob: string;
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private stateService: StateService) { }
 
   setNameJob(jobName) {
     this.characterName.next(jobName.characterName);
@@ -39,14 +40,14 @@ export class SwapService {
   }
 
   processSwap() {
-     this.getCharacterName().subscribe(x => this.swap.CharacterName = x);
-     this.getCharacterJob().subscribe(x => this.swap.CharacterJob = x);
-     this.swap.GearSets = this.gearSets;
-     console.log(this.swap);
+    this.getCharacterName().subscribe(x => this.swap.CharacterName = x);
+    this.getCharacterJob().subscribe(x => this.swap.CharacterJob = x);
+    this.swap.GearSets = this.gearSets;
   }
 
   postSwap() {
     this.processSwap();
+    this.stateService.updateStateCookie(this.swap);
     let swapJson = JSON.stringify(this.swap);
     const httpOptions = {
       headers: new HttpHeaders({

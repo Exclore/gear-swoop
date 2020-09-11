@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {SwapService} from '../services/swap.service';
 import { saveAs } from 'file-saver';
-import {JobTemplates} from '../Interfaces/JobTemplates';
+import { JobTemplates } from '../Interfaces/JobTemplates';
+import { StateService } from '../services/state.service';
 
 @Component({
   selector: 'app-swap',
@@ -21,9 +22,10 @@ export class SwapComponent {
   actionCategories = {};
   sets = [];
 
-  constructor(private swapService: SwapService) {  }
+  constructor(private swapService: SwapService, private stateService: StateService) { }
 
   submitNameJob() {
+    this.stateService.rebuildFrontEnd();
     this.jobNameForm.disable();
     this.swapService.setNameJob(this.jobNameForm.value);
     this.actionCategories = JobTemplates[this.jobNameForm.get('job').value];

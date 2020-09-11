@@ -1,37 +1,33 @@
-export var IState: { [characterName: string]: { [job: string]: { [setName: string] : any } } } = {
-'Exclore': {
-    'WAR': {
-      'SavageBlade': {
-        Mode: 'Precast',
-        Main: 21621,
-        Sub: 27644
-      },
-      'SmashySmash': {
-        Mode: 'Precast',
-        Main: 21621,
-        Feet: 27494
-      },
-    },
-    'MNK': [],
-    'WHM': [],
-    'BLM': [],
-    'RDM': [],
-    'THF': [],
-    'PLD': [],
-    'DRK': [],
-    'BST': [],
-    'BRD': [],
-    'RNG': [],
-    'SAM': [],
-    'NIN': [],
-    'DRG': [],
-    'SMN': [],
-    'BLU': [],
-    'COR': [],
-    'PUP': [],
-    'DNC': [],
-    'SCH': [],
-    'GEO': [],
-    'RUN': []
-  },
+export interface IState {
+  state: Array<CharacterName>;
+}
+
+export interface CharacterName {
+  name: string;
+  jobs: Array<Job>;
+}
+
+export interface Job {
+  job: string;
+  sets: Array<Set>;
+}
+
+export interface Set {
+  Mode: string;
+  SetName: string;
+  AmmoId?: number;
+  BackId?: number;
+  BodyId?: number;
+  FeetId?: number;
+  HandsId?: number;
+  HeadId?: number;
+  LeftEarId?: number;
+  LeftRingId?: number;
+  LegsId?: number;
+  MainId?: number;
+  NeckId?: number;
+  RightEarId?: number;
+  RightRingId?: number;
+  SubId?: number;
+  WaistId?: number;
 }
