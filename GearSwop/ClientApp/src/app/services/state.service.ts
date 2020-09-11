@@ -1,7 +1,8 @@
 import { CookieService } from 'ngx-cookie-service';
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { IState } from '../Interfaces/State';
 import { ISwap } from '../Interfaces/Swap';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ import { ISwap } from '../Interfaces/Swap';
 export class StateService {
 
   state: IState;
+
 
   constructor(private cookieService: CookieService) { }
 
@@ -41,10 +43,14 @@ export class StateService {
     console.log('Is there a GearSwoopState cookie?', this.cookieService.check('GearSwoopState'))
     if (this.cookieService.check('GearSwoopState')) {
       this.state = JSON.parse(this.cookieService.get('GearSwoopState'));
-      
+      console.log(this.state);
     }
     else {
       return;
     }
+  }
+
+  getRebuild() {
+    return of(this.state);
   }
 }
