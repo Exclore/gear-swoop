@@ -9,17 +9,14 @@ import { StateService } from '../../services/state.service'
 })
 export class ActionCategoryComponent implements OnInit {
   @Input() actionCategoryName: string;
-  @Input() spellMap: any;
 
   sets = [];
-  rebuild: IState;
 
   constructor(private stateService: StateService) { }
 
   ngOnInit() {
-    this.stateService.getRebuild().subscribe(x => {
-      this.rebuild = x;
-      for (let set of this.rebuild.state[0].jobs[0].sets) {
+    this.stateService.getRebuild().subscribe(rebuild => {
+      for (let set of rebuild.state[0].jobs[0].sets) {
         this.sets.push(set);
       }
     });

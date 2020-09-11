@@ -15,9 +15,9 @@ export class SwapComponent {
     'DRG', 'SMN', 'BLU', 'COR', 'PUP', 'DNC', 'SCH', 'GEO', 'RUN'];
   jobNameSet: boolean = false;
   jobNameForm = new FormGroup({
-    characterName: new FormControl({value: '', disabled: this.jobNameSet}, Validators.required),
-    job: new FormControl({value: '', disabled: this.jobNameSet}, Validators.required),
-  })
+    characterName: new FormControl({ value: '', disabled: this.jobNameSet }, Validators.required),
+    job: new FormControl({ value: '', disabled: this.jobNameSet }, Validators.required),
+  });
   displayGearSelection = true;
   actionCategories = {};
   sets = [];
@@ -29,6 +29,7 @@ export class SwapComponent {
     this.jobNameForm.disable();
     this.swapService.setNameJob(this.jobNameForm.value);
     this.actionCategories = JobTemplates[this.jobNameForm.get('job').value];
+    console.log(this.actionCategories);
     this.jobNameSet = true;
   }
 

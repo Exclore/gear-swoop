@@ -102,9 +102,9 @@ export var JobTemplates: {[key: string]: {[key:string]: string[]} } = {
   },
   'RUN': {
     'FastCast Sets': ['FC'],
-    'Job Ability Sets': [], //PUP JAs
+    'Job Ability Sets': [], //RUN JAs
     'Engaged Sets': ['Engaged'],
-    'Weaponskill Sets': [], //PUP WS
+    'Weaponskill Sets': [], //RUN WS
     'Idle Sets': ['Idle']
   },
   'SAM': {

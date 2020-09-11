@@ -4,6 +4,7 @@ import { IGearItem } from '../../Interfaces/GearItem';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { SwapService } from '../../services/swap.service';
+import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'app-gearset',
@@ -60,10 +61,17 @@ export class GearsetComponent implements OnInit {
     Back: "",
   }
 
-  constructor(private gearService: GearService, private setService: SetService, private swapService: SwapService) { }
+  constructor(private gearService: GearService, private setService: SetService, private swapService: SwapService, private stateService: StateService) { }
 
   ngOnInit() {
     this.swapService.getCharacterJob().subscribe(x => this.currentJob = x);
+    this.stateService.getRebuild().subscribe(x => {
+      if (x.state[0].jobs[0].job.includes(this.currentJob)) {
+        this.setMode = x.state[0].jobs[0].sets[0].Mode;
+        this.setName = x.state[0].jobs[0].sets[0].SetName;
+        this.formComplete = true;
+      }
+    });
   }
 
   selectGearItem(slot: string) {
