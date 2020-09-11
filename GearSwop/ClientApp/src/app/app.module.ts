@@ -22,6 +22,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
 import { ItemDisplayComponent } from './swap/item-display/item-display.component';
 import { ActionCategoryComponent } from './swap/action-category/action-category.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { ActionCategoryComponent } from './swap/action-category/action-category.
     MatListModule,
     MatSelectModule,
   ],
-  providers: [],
+  providers: [ CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

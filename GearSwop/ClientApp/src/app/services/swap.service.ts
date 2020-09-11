@@ -3,7 +3,7 @@ import {BehaviorSubject, throwError} from 'rxjs';
 import {IGearSet} from '../Interfaces/GearSet';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
-import {ISwap} from '../Interfaces/Swap';
+import { ISwap } from '../Interfaces/Swap';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class SwapService {
     CharacterJob: string;
   };
 
-  constructor(private http: HttpClient) {  }
+  constructor(private http: HttpClient) { }
 
   setNameJob(jobName) {
     this.characterName.next(jobName.characterName);
@@ -48,8 +48,6 @@ export class SwapService {
   postSwap() {
     this.processSwap();
     let swapJson = JSON.stringify(this.swap);
-    var cookie = ['gearSwop' + swapJson, + '; domain=.', window.location.host.toString(), '; path=/;'].join('');
-    document.cookie = cookie;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
