@@ -4,7 +4,6 @@ import {IGearSet} from '../Interfaces/GearSet';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import { ISwap } from '../Interfaces/Swap';
-import { StateService } from './state.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +19,7 @@ export class SwapService {
     CharacterJob: string;
   };
 
-  constructor(private http: HttpClient, private stateService: StateService) { }
+  constructor(private http: HttpClient) { }
 
   setNameJob(jobName) {
     this.characterName.next(jobName.characterName);
@@ -47,7 +46,6 @@ export class SwapService {
 
   postSwap() {
     this.processSwap();
-    this.stateService.updateStateCookie(this.swap);
     let swapJson = JSON.stringify(this.swap);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -68,3 +66,4 @@ export class SwapService {
   }
 }
 
+//     this.cookieService.set('GearSwoopState', currentStateString, null, null, null, true, 'None');

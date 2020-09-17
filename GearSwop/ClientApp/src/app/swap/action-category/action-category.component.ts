@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { StateService } from '../../services/state.service'
 
 @Component({
   selector: 'app-action-category',
@@ -11,18 +10,10 @@ export class ActionCategoryComponent implements OnInit {
 
   sets = [];
 
-  constructor(private stateService: StateService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.stateService.getRebuildState().subscribe(rebuildState => {
-      if (rebuildState) {
-        this.stateService.getRebuild().subscribe(rebuild => {
-          for (let set of rebuild.state[0].jobs[0].sets) {
-            this.sets.push(set);
-          }
-        });
-      }
-    })
+   
   }
 
   addGearSetComponent() {
