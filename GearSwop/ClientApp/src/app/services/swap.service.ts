@@ -4,6 +4,7 @@ import {IGearSet} from '../Interfaces/GearSet';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import { ISwap } from '../Interfaces/Swap';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +20,23 @@ export class SwapService {
     CharacterJob: string;
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cookieService: CookieService) { }
 
   setNameJob(jobName) {
     this.characterName.next(jobName.characterName);
     this.characterJob.next(jobName.job);
+  }
+
+  rebuildSwapFromCookie(charName: string, charJob: string) {
+    if (this.cookieService.check('GearSwoop-' + charName + '-' + charJob)) {
+      let tempSwap = JSON.parse(this.cookieService.get('GearSwoop-' + charName + '-' + charJob));
+      console.log(tempSwap);
+      this.swap = tempSwap;
+    }
+  }
+
+  getSwap() {
+    return this.swap;
   }
 
   getCharacterJob() {
@@ -47,6 +60,9 @@ export class SwapService {
   postSwap() {
     this.processSwap();
     let swapJson = JSON.stringify(this.swap);
+
+    this.cookieService.set('GearSwoop-' + this.characterName.value + '-' + this.characterJob.value, swapJson, null, null, null, true, 'None');
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
@@ -65,5 +81,3 @@ export class SwapService {
     return throwError(error.message || error);
   }
 }
-
-//     this.cookieService.set('GearSwoopState', currentStateString, null, null, null, true, 'None');
