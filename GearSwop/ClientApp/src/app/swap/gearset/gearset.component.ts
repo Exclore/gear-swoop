@@ -1,7 +1,7 @@
 import {SetService} from '../../services/set.service';
 import {GearService} from '../../services/gear.service';
 import { IGearItem } from '../../Interfaces/GearItem';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { SwapService } from '../../services/swap.service';
 
@@ -12,6 +12,9 @@ import { SwapService } from '../../services/swap.service';
   providers: [SetService]
 })
 export class GearsetComponent implements OnInit {
+
+  @Input() set;
+
   gearSelector = new FormControl('');
   itemPreviewData: IGearItem;
   autocompleteOptions: string[];
@@ -63,10 +66,24 @@ export class GearsetComponent implements OnInit {
   constructor(private gearService: GearService, private setService: SetService, private swapService: SwapService) { }
 
   ngOnInit() {
-    if (this.swapService.cookieExists) {
+    if (this.swapService.cookieExists && this.set) {
       this.formComplete = true;
+      this.buildSetFromCookie();
     }
     this.swapService.getCharacterJob().subscribe(x => this.currentJob = x);
+  }
+
+  buildSetFromCookie() {
+    for (let slotItem of this.set) {
+      for (let key in slotItem) {
+        this.gearService.getGearInfoByItemName(slotItem[key]).subscribe(x => {
+          this.itemPreviewData = x;
+          this.gearImageUrls[key] = 'https://static.ffxiah.com/images/icon/' + x.itemId + '.png';
+          this.setService.updateSet(key, slotItem[key]);
+        });
+      }
+
+    }
   }
 
   selectGearItem(slot: string) {
