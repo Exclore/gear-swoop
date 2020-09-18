@@ -13,6 +13,10 @@ export class GearService {
   private itemMap;
 
   constructor(private http: HttpClient) {
+    
+  }
+
+  loadItemMap() {
     this.GetItemMap().subscribe(x => this.itemMap = x);
   }
 

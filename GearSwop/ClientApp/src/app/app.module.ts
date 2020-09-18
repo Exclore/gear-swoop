@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -23,6 +23,11 @@ import {MatSelectModule} from '@angular/material/select';
 import { ItemDisplayComponent } from './swap/item-display/item-display.component';
 import { ActionCategoryComponent } from './swap/action-category/action-category.component';
 import { CookieService } from 'ngx-cookie-service';
+import { GearService } from '../app/services/gear.service';
+
+export function init_app(gearService: GearService) {
+  return () => gearService.loadItemMap();
+}
 
 @NgModule({
   declarations: [
@@ -54,7 +59,11 @@ import { CookieService } from 'ngx-cookie-service';
     MatListModule,
     MatSelectModule,
   ],
-  providers: [ CookieService],
+  providers: [
+    CookieService,
+    GearService,
+    { provide: APP_INITIALIZER, useFactory: init_app, deps: [GearService], multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
