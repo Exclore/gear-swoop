@@ -19,6 +19,7 @@ export class SwapService {
     GearSets: Array<IGearSet>;
     CharacterJob: string;
   };
+  cookieExists = false;
 
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
@@ -29,6 +30,7 @@ export class SwapService {
 
   rebuildSwapFromCookie(charName: string, charJob: string) {
     if (this.cookieService.check('GearSwoop-' + charName + '-' + charJob)) {
+      this.cookieExists = true;
       let tempSwap = JSON.parse(this.cookieService.get('GearSwoop-' + charName + '-' + charJob));
       console.log(tempSwap);
       this.swap = tempSwap;

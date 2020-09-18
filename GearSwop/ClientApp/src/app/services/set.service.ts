@@ -5,7 +5,6 @@ import {GearService} from './gear.service';
 import {SwapService} from './swap.service';
 import { BehaviorSubject } from 'rxjs';
 
-
 @Injectable()
 export class SetService {
   activeSet: IGearSet = new class implements IGearSet {

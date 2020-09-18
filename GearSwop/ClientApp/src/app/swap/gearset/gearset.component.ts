@@ -63,6 +63,9 @@ export class GearsetComponent implements OnInit {
   constructor(private gearService: GearService, private setService: SetService, private swapService: SwapService) { }
 
   ngOnInit() {
+    if (this.swapService.cookieExists) {
+      this.formComplete = true;
+    }
     this.swapService.getCharacterJob().subscribe(x => this.currentJob = x);
   }
 

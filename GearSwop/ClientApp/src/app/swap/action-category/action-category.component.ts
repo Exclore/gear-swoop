@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { SwapService } from '../../services/swap.service';
 
 @Component({
   selector: 'app-action-category',
@@ -10,10 +11,12 @@ export class ActionCategoryComponent implements OnInit {
 
   sets = [];
 
-  constructor() { }
+  constructor(private swapService: SwapService) { }
 
   ngOnInit() {
-   
+    if (this.swapService.cookieExists) {
+      this.sets.push(this.swapService.getSwap().GearSets);
+    }
   }
 
   addGearSetComponent() {
