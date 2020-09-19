@@ -3,7 +3,8 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {IGearItem} from '../Interfaces/GearItem';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
-import {IItemMap} from '../Interfaces/ItemMap';
+import { IItemMap } from '../Interfaces/ItemMap';
+
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,22 @@ export class GearService {
           return res as string[];
         })
       );
+  }
+
+  getPersonalGearSuggestions(file) {
+    this.itemMap = this.parseUserGearFile(file);
+  }
+
+  private parseUserGearFile(file) {
+    console.log(file);
+    let inside = file.match(/sets\.exported={(.*)}\s*$/s)[1];
+    let iterator = inside.matchAll(/([\w_]+)=\ *({\ *name=)?"(.*)", *(augments={)?([^}\n]*)?}?}?,?/g);
+    let gearItems = Array.from(iterator, this.mapUserGearItems);
+    let userGear = gearItems.filter(x => x.type !== 'item');
+    console.log(userGear);
+  }
+  private mapUserGearItems(i) {
+    return { type: i[1], name: i[3], augments: i[5] }
   }
 
   private GetGearInfoById(itemId): Observable<IGearItem> {

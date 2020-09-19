@@ -25,6 +25,12 @@
   </div>
 </div>
 
+<form [formGroup]="gearUploadForm">
+  <label>Gear Upload</label>
+  <br />
+  <input #personalGear type="file" formControlName="gearUpload" (change)="submitPersonalGear(personalGear)"/>
+</form>
+
 <div *ngIf="jobNameSet">
   <button mat-button (click)="submitSwap()">Submit Swap</button>
 </div>

@@ -1,7 +1,7 @@
 import {SetService} from '../../services/set.service';
 import {GearService} from '../../services/gear.service';
 import { IGearItem } from '../../Interfaces/GearItem';
-import { Component, OnInit, Input, ViewChild, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { SwapService } from '../../services/swap.service';
 
@@ -85,8 +85,6 @@ export class GearsetComponent implements OnInit {
       });
     }
   }
-
-  
 
   selectGearItem(slot: string) {
     this.displayGearSelection = true;

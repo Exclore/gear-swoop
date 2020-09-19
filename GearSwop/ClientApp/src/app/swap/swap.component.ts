@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {SwapService} from '../services/swap.service';
+import { SwapService } from '../services/swap.service';
 import { saveAs } from 'file-saver';
 import { JobTemplates } from '../Interfaces/JobTemplates';
+import { GearService } from '../services/gear.service';
 
 @Component({
   selector: 'app-swap',
@@ -17,11 +18,14 @@ export class SwapComponent {
     characterName: new FormControl({ value: '', disabled: this.jobNameSet }, Validators.required),
     job: new FormControl({ value: '', disabled: this.jobNameSet }, Validators.required),
   });
+  gearUploadForm = new FormGroup({
+    gearUpload: new FormControl()
+  });
   displayGearSelection = true;
   actionCategories = {};
   sets = [];
 
-  constructor(private swapService: SwapService) { }
+  constructor(private swapService: SwapService, private gearService: GearService) { }
 
   submitNameJob() {
     this.jobNameForm.disable();
@@ -29,6 +33,13 @@ export class SwapComponent {
     this.swapService.rebuildSwapFromCookie(this.jobNameForm.get('characterName').value, this.jobNameForm.get('job').value);
     this.actionCategories = JobTemplates[this.jobNameForm.get('job').value];
     this.jobNameSet = true;
+  }
+
+  submitPersonalGear(file) {
+    console.log(file.files[0]);
+    var fileReader = new FileReader();
+    fileReader.readAsText(file.files[0]);
+    fileReader.onload = x => this.gearService.getPersonalGearSuggestions(fileReader.result);
   }
 
   editNameJob() {
