@@ -20,6 +20,7 @@ export class SwapService {
     CharacterJob: string;
   };
   cookieExists = false;
+  tempGearSets: Array<IGearSet>;
 
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
@@ -34,7 +35,12 @@ export class SwapService {
       let tempSwap = JSON.parse(this.cookieService.get('GearSwoop-' + charName + '-' + charJob));
       console.log(tempSwap);
       this.swap = tempSwap;
+      this.tempGearSets = this.swap.GearSets;
     }
+  }
+
+  getTempRebuildGearset() {
+    return this.tempGearSets.pop();
   }
 
   getSwap() {

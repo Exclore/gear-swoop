@@ -1,7 +1,7 @@
 <div class="action-category-layout">
   <h2>{{actionCategoryName}}</h2>
-  <div class="gearset-layout">
-    <app-gearset *ngFor="let set of sets" [set]="set"></app-gearset>
+  <div *ngFor="let set of sets | keyvalue" class="gearset-layout">
+    <app-gearset></app-gearset>
   </div>
   <button mat-button (click)="addGearSetComponent()">Add another set</button>
 </div>
