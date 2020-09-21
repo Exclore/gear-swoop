@@ -2,6 +2,12 @@ body {
   background-color: #101010;
 }
 
+.initial-form-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .job-form {
   padding-left: 4%;
 }
@@ -19,6 +25,20 @@ body {
 .action-category-gear-selection-layout {
     display: flex;
     flex-direction: row;
+}
+
+.gear-upload-layout {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.gear-upload-tutorial {
+    max-width: 400px;
+}
+
+.gear-upload-form {
+
 }
 
 .action-category-layout {
