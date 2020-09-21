@@ -6,6 +6,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .job-form {
@@ -31,11 +32,18 @@ body {
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
-    margin-right: 10%;
+    position: relative;
 }
 
 .gear-upload-tutorial {
-    max-width: 400px;
+  position: absolute;
+  font-size: 0.9em;
+  top: calc(100% + 37px);
+  right: 0;
+  font-size: 0.9em;
+  max-width: 50vw;
+  min-width: 400px;
+  white-space: initial;
 }
 
 .gear-upload-form {
@@ -52,4 +60,20 @@ body {
 .help-icon {
     height: 25px;
     padding-left: 10px;
+}
+
+.logo {
+  height: 150px;
+  margin-top: 50px;
+}
+
+.toolbar {
+  height: 130px;
+  background-color: #212121;
+  margin-bottom: 50px;
+}
+
+mat-toolbar {
+    font-size: 0.9em;
+    justify-content:space-between;
 }

@@ -1,43 +1,48 @@
-<div class="initial-form-layout">
-  <form class="job-form" [formGroup]="jobNameForm" (ngSubmit)="submitNameJob()" ngDefaultControl>
-    <mat-form-field>
-      <mat-label>Character Name</mat-label>
-      <input autocomplete="off" matInput placeholder="Character Name" formControlName="characterName" name="characterName" required>
-      <mat-error *ngIf="jobNameForm.hasError('required')">Please enter your charater's name</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Select a Job</mat-label>
-      <mat-select formControlName="job" required>
-        <mat-option *ngFor="let job of jobAbbreviation" [value]="job">
-          {{job}}
-        </mat-option>
-      </mat-select>
-      <mat-error *ngIf="jobNameForm.hasError('required')">Please choose a job</mat-error>
-    </mat-form-field>
-    <button *ngIf="!jobNameSet" mat-button type="submit" [disabled]="!jobNameForm.valid">Get Started!</button>
-    <button *ngIf="jobNameSet" (click)="editNameJob()" mat-button>Edit Name and Job</button>
-  </form>
-</div>
-<div class="gear-upload-layout">
-  <form [formGroup]="gearUploadForm" class="gear-upload-form">
-    <label>Gear Upload (optional)</label>
-    <img (click)="toggleTutorial()" src="../../assets/help.png" class="help-icon"/>
-    <br />
-    <input #personalGear type="file" formControlName="gearUpload" (change)="submitPersonalGear(personalGear)" />
-  </form>
-  <mat-card *ngIf="displayUploadTutorial" class="gear-upload-tutorial">
-    <mat-card-title>How to upload your gear</mat-card-title>
-    <mat-card-content>
-      <p>You can use gearswap to export all of your gear by using the following command in game: <code>//gs export all</code></p>
-      <p>This will create a <code>lua</code> file named after your character and the current date in your gearswap export folder.</p>
-      <p>This file is located in your <code>Windower</code> folder at this directory: <code>Windower\addons\GearSwap\data\export</code></p>
-      <p>Once you upload this file GearSwoop will let you pick from the gear you have in your inventories (including augments) instead of every item in the game.</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button (click)="toggleTutorial()">Close</button>
-    </mat-card-actions>
-  </mat-card>
-</div>
+<mat-toolbar class="toolbar">
+  <img class="logo" src="../../assets/GearswoopLogo.png" />
+  <div class="initial-form-layout">
+    <form class="job-form" [formGroup]="jobNameForm" (ngSubmit)="submitNameJob()" ngDefaultControl>
+      <mat-form-field>
+        <mat-label>Character Name</mat-label>
+        <input autocomplete="off" matInput placeholder="Character Name" formControlName="characterName" name="characterName" required>
+        <mat-error *ngIf="jobNameForm.hasError('required')">Please enter your charater's name</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Select a Job</mat-label>
+        <mat-select formControlName="job" required>
+          <mat-option *ngFor="let job of jobAbbreviation" [value]="job">
+            {{job}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="jobNameForm.hasError('required')">Please choose a job</mat-error>
+      </mat-form-field>
+      <button *ngIf="!jobNameSet" mat-button type="submit" [disabled]="!jobNameForm.valid">Get Started!</button>
+      <button *ngIf="jobNameSet" (click)="editNameJob()" mat-button>Edit Name and Job</button>
+    </form>
+  </div>
+  <div class="gear-upload-layout">
+    <form [formGroup]="gearUploadForm" class="gear-upload-form">
+      <label>Gear Upload (optional)</label>
+      <img (click)="toggleTutorial()" src="../../assets/help.png" class="help-icon" />
+      <br />
+      <input #personalGear type="file" formControlName="gearUpload" (change)="submitPersonalGear(personalGear)" />
+    </form>
+    <mat-card *ngIf="displayUploadTutorial" class="gear-upload-tutorial">
+      <mat-card-title>How to upload your gear</mat-card-title>
+      <mat-card-content>
+        <p>You can use gearswap to export all of your gear by using the following command in game: <code>//gs export all</code></p>
+        <p>This will create a <code>lua</code> file named after your character and the current date in your gearswap export folder.</p>
+        <p>This file is located in your <code>Windower</code> folder at this directory: <code>Windower\addons\GearSwap\data\export</code></p>
+        <p>Once you upload this file GearSwoop will let you pick from the gear you have in your inventories (including augments) instead of every item in the game.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="toggleTutorial()">Close</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</mat-toolbar>
+
+
 
 <div class="action-category-gear-selection-layout">
   <div *ngIf="jobNameSet" class="action-category-layout">

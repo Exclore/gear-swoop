@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import { Observable} from 'rxjs';
 import {IGearItem} from '../Interfaces/GearItem';
 import { map } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -57,7 +57,7 @@ export class GearService {
     this.itemMap = this.userItemMap;
   }
 
-  private filterUserGearSuggestions(item) {
+  private filterUserGearSuggestions(this, item) {
     return item != undefined &&
       (item.itemShortName.toLowerCase().startsWith(this.query) || item.itemLongName.toLowerCase().startsWith(this.query)) &&
       item.jobs.includes(this.job) &&
