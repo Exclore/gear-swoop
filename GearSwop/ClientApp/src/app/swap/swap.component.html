@@ -21,10 +21,11 @@
 <div class="gear-upload-layout">
   <form [formGroup]="gearUploadForm" class="gear-upload-form">
     <label>Gear Upload (optional)</label>
+    <img (click)="toggleTutorial()" src="../../assets/help.png" class="help-icon"/>
     <br />
     <input #personalGear type="file" formControlName="gearUpload" (change)="submitPersonalGear(personalGear)" />
   </form>
-  <mat-card class="gear-upload-tutorial">
+  <mat-card *ngIf="displayUploadTutorial" class="gear-upload-tutorial">
     <mat-card-title>How to upload your gear</mat-card-title>
     <mat-card-content>
       <p>You can use gearswap to export all of your gear by using the following command in game: <code>//gs export all</code></p>
@@ -32,6 +33,9 @@
       <p>This file is located in your <code>Windower</code> folder at this directory: <code>Windower\addons\GearSwap\data\export</code></p>
       <p>Once you upload this file GearSwoop will let you pick from the gear you have in your inventories (including augments) instead of every item in the game.</p>
     </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="toggleTutorial()">Close</button>
+    </mat-card-actions>
   </mat-card>
 </div>
 

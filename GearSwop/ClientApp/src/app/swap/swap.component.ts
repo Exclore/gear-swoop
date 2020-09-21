@@ -24,6 +24,7 @@ export class SwapComponent {
   displayGearSelection = true;
   actionCategories = {};
   sets = [];
+  displayUploadTutorial = false
 
   constructor(private swapService: SwapService, private gearService: GearService) { }
 
@@ -45,6 +46,10 @@ export class SwapComponent {
   editNameJob() {
     this.jobNameForm.enable();
     this.jobNameSet = false;
+  }
+
+  toggleTutorial() {
+    this.displayUploadTutorial = !this.displayUploadTutorial;
   }
 
   addGearSetComponent() {

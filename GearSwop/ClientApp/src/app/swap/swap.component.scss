@@ -29,8 +29,9 @@ body {
 
 .gear-upload-layout {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: row;
+    margin-right: 10%;
 }
 
 .gear-upload-tutorial {
@@ -46,4 +47,9 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+}
+
+.help-icon {
+    height: 25px;
+    padding-left: 10px;
 }
