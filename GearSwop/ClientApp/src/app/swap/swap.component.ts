@@ -24,7 +24,7 @@ export class SwapComponent {
   displayGearSelection = true;
   actionCategories = {};
   sets = [];
-  displayUploadTutorial = false
+  displayUploadTutorial = false;
 
   constructor(private swapService: SwapService, private gearService: GearService) { }
 
