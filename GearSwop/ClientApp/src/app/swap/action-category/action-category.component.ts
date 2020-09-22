@@ -20,6 +20,7 @@ export class ActionCategoryComponent implements OnInit {
   }
 
   addGearSetComponent() {
-    this.sets = [...this.sets, this.sets.length];
+    //this.sets = [...this.sets, this.sets.length];
+    this.sets.push({});
   }
 }

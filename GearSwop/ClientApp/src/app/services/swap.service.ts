@@ -20,6 +20,7 @@ export class SwapService {
     CharacterJob: string;
   };
   cookieExists = false;
+  rebuilidFinished = false;
   tempGearSets: Array<IGearSet>;
 
   constructor(private http: HttpClient, private cookieService: CookieService) { }
@@ -40,6 +41,9 @@ export class SwapService {
   }
 
   getTempRebuildGearset() {
+    if (this.tempGearSets.length == 0) {
+      this.rebuilidFinished = true;
+    }
     return this.tempGearSets.pop();
   }
 

@@ -66,7 +66,7 @@ export class GearsetComponent implements OnInit {
   constructor(private gearService: GearService, private setService: SetService, private swapService: SwapService) { }
 
   ngOnInit() {
-    if (this.swapService.cookieExists) {
+    if (this.swapService.cookieExists && this.swapService.tempGearSets.length != 0) {
       this.set = this.swapService.getTempRebuildGearset();
       this.formComplete = true;
       this.buildSetFromCookie();

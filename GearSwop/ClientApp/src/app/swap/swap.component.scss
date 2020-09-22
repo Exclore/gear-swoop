@@ -17,6 +17,11 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  button {
+      margin-top: 25px;
+      max-height: 40px;
+  }
 }
 
 .mat-form-field {

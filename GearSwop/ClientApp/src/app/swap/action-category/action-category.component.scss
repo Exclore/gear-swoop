@@ -1,6 +1,12 @@
 
 .action-category-layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 
+    button {
+        max-height: 40px;
+    }
 }
 
 .gearset-layout {
