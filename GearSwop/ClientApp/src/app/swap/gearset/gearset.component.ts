@@ -1,7 +1,7 @@
 import {SetService} from '../../services/set.service';
 import {GearService} from '../../services/gear.service';
 import { IGearItem } from '../../Interfaces/GearItem';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { SwapService } from '../../services/swap.service';
 
@@ -13,6 +13,7 @@ import { SwapService } from '../../services/swap.service';
 })
 export class GearsetComponent implements OnInit {
 
+  @Input() actionCategory;
   set;
 
   gearSelector = new FormControl('');
@@ -66,6 +67,7 @@ export class GearsetComponent implements OnInit {
   constructor(private gearService: GearService, private setService: SetService, private swapService: SwapService) { }
 
   ngOnInit() {
+    console.log(this.actionCategory);
     if (this.swapService.cookieExists && this.swapService.tempGearSets.length != 0) {
       this.set = this.swapService.getTempRebuildGearset();
       this.formComplete = true;

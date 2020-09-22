@@ -37,7 +37,6 @@ export class SwapComponent {
   }
 
   submitPersonalGear(file) {
-    console.log(file.files[0]);
     var fileReader = new FileReader();
     fileReader.readAsText(file.files[0]);
     fileReader.onload = x => this.gearService.getPersonalGearSuggestions(fileReader.result);

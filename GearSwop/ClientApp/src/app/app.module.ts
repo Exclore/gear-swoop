@@ -15,13 +15,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material/input';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
 import { ItemDisplayComponent } from './swap/item-display/item-display.component';
-import { ActionCategoryComponent } from './swap/action-category/action-category.component';
 import { CookieService } from 'ngx-cookie-service';
 import { GearService } from '../app/services/gear.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -36,9 +34,7 @@ export function init_app(gearService: GearService) {
     FetchDataComponent,
     SwapComponent,
     GearsetComponent,
-    NavMenuComponent,
-    ItemDisplayComponent,
-    ActionCategoryComponent
+    ItemDisplayComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),

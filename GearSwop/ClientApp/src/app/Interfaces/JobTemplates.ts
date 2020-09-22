@@ -142,8 +142,7 @@ export var JobTemplates: {[key: string]: {[key:string]: string[]} } = {
   'WHM': {
     'Job Ability Sets': [], //WHM JAs
     'FastCast Set': ['FC'],
-    'Cure Sets': ['Cure'],
-    'Curaga Sets': ['Curaga'],
+    'Healing Magic Sets': ['Cure', 'Curaga'],
     'Status Removal Sets': ['Status Removal', 'Erase'],
     'Barspell Sets': ['Status Barspells', 'Elemental Barspells'],
     'Idle Sets': ['Idle']
