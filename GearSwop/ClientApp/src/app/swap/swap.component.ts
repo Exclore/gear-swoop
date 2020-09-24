@@ -23,7 +23,6 @@ export class SwapComponent {
   });
   displayGearSelection = true;
   actionCategories = {};
-  sets = [];
   displayUploadTutorial = false;
 
   constructor(private swapService: SwapService, private gearService: GearService) { }
@@ -51,13 +50,16 @@ export class SwapComponent {
     this.displayUploadTutorial = !this.displayUploadTutorial;
   }
 
-  addGearSetComponent() {
-    this.sets = [...this.sets, this.sets.length];
+  addGearSetComponent(actionCategory) {
+    this.actionCategories[actionCategory.key][Object.keys(this.actionCategories[actionCategory.key]).length] = {};
+  }
+
+  trackAction(index, action) {
+    return action ? action.key : undefined;
   }
 
   submitSwap() {
     this.swapService.postSwap().subscribe(response => {
-      console.log(response);
       let blob = new Blob([response], {type: 'text/plain'});
       let filename = this.jobNameForm.get('characterName').value+"_" + this.jobNameForm.get('job').value + '.lua';
       saveAs(blob, filename);

@@ -28,11 +28,6 @@ body {
   padding: 20px;
 }
 
-.action-category-gear-selection-layout {
-    display: flex;
-    flex-direction: row;
-}
-
 .gear-upload-layout {
     display: flex;
     justify-content: flex-end;
@@ -51,14 +46,10 @@ body {
   white-space: initial;
 }
 
-.gear-upload-form {
-
-}
-
 .action-category-layout {
   padding-left: 4%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 

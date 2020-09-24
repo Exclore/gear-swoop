@@ -42,18 +42,18 @@
   </div>
 </mat-toolbar>
 
-<div class="action-category-gear-selection-layout">
-  <div *ngIf="jobNameSet" class="action-category-layout">
-    <div *ngFor="let jobActionCategory of actionCategories | keyvalue">
-      <h2>{{jobActionCategory.key}}</h2>
+<div *ngIf="jobNameSet" class="action-category-layout">
+  <mat-grid-list cols="2">
+    <div *ngFor="let actionCategory of actionCategories | keyvalue">
+      <h2>{{actionCategory.key}}</h2>
       <div class="action-category-layout">
-        <div *ngFor="let actionCategory of jobActionCategory.value | keyvalue" class="gearset-layout">
-            <app-gearset [actionCategory]="actionCategory"></app-gearset>
+        <div *ngFor="let action of actionCategory.value | keyvalue; trackBy: trackAction" class="gearset-layout">
+          <app-gearset [action]="action"></app-gearset>
         </div>
-        <button mat-button (click)="addGearSetComponent()">Add another set</button>
+        <button mat-button (click)="addGearSetComponent(actionCategory)">Add another set</button>
       </div>
     </div>
-  </div>
+  </mat-grid-list>
 </div>
 
 <div *ngIf="jobNameSet">

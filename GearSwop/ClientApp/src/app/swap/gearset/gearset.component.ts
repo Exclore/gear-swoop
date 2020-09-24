@@ -13,7 +13,7 @@ import { SwapService } from '../../services/swap.service';
 })
 export class GearsetComponent implements OnInit {
 
-  @Input() actionCategory;
+  @Input() action;
   set;
 
   gearSelector = new FormControl('');
@@ -67,18 +67,22 @@ export class GearsetComponent implements OnInit {
   constructor(private gearService: GearService, private setService: SetService, private swapService: SwapService) { }
 
   ngOnInit() {
-    console.log(this.actionCategory);
+    this.swapService.getCharacterJob().subscribe(x => this.currentJob = x);
+
     if (this.swapService.cookieExists && this.swapService.tempGearSets.length != 0) {
       this.set = this.swapService.getTempRebuildGearset();
       this.formComplete = true;
       this.buildSetFromCookie();
     }
-    this.swapService.getCharacterJob().subscribe(x => this.currentJob = x);
+    if (JSON.stringify(this.action.value) !== '{}') {
+      this.setName = this.action.value;
+      this.setMode = 'TEST'; //TODO: Figure out how to get the set mode here
+      this.formComplete = true;
+    }
   }
 
   buildSetFromCookie() {
     for (let slot of Object.keys(this.set)) {
-      console.log(slot);
       this.gearService.getGearInfoByItemName(this.set[slot]).subscribe(x => {
         this.itemPreviewData = x;
         this.gearImageUrls[slot] = 'https://static.ffxiah.com/images/icon/' + x.itemId + '.png';
@@ -110,7 +114,6 @@ export class GearsetComponent implements OnInit {
   }
 
   getGearSuggestions() {
-    console.log(this.currentJob, this.slot, this.gearSelector.value);
     this.gearService.GetGearAutocompleteSuggestions(this.currentJob, this.slot, this.gearSelector.value)
       .subscribe(x => this.autocompleteOptions = x);
   }

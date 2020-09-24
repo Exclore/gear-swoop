@@ -23,6 +23,8 @@ import { ItemDisplayComponent } from './swap/item-display/item-display.component
 import { CookieService } from 'ngx-cookie-service';
 import { GearService } from '../app/services/gear.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 export function init_app(gearService: GearService) {
   return () => gearService.loadItemMap();
@@ -55,7 +57,8 @@ export function init_app(gearService: GearService) {
     MatCheckboxModule,
     MatListModule,
     MatSelectModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatGridListModule
   ],
   providers: [
     CookieService,
