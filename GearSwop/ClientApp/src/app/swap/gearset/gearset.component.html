@@ -25,7 +25,9 @@
       <div *ngIf="formComplete">
         <div class="set-name">
           {{setName}}
+          <img src="../../../assets/edit-icon.png" *ngIf="formComplete" (click)="editSet()" />
         </div>
+
         <div class="gear-set-display">
           <div class="gear-square" *ngFor="let slot of slots">
             <div (click)="selectGearItem(slot)">

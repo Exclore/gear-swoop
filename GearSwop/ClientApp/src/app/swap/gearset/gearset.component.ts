@@ -130,6 +130,6 @@ export class GearsetComponent implements OnInit {
   }
 
   editSet() {
-    this.setSaved = false;
+    this.formComplete = false;
   }
 }
