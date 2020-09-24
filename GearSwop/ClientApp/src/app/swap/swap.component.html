@@ -48,6 +48,7 @@
       <h2>{{actionCategory.key}}</h2>
       <div class="action-category-layout">
         <div *ngFor="let action of actionCategory.value | keyvalue; trackBy: trackAction" class="gearset-layout">
+          <button (click)="deleteSet(actionCategory, action)">DELETE SET</button>
           <app-gearset [action]="action"></app-gearset>
         </div>
         <button mat-button (click)="addGearSetComponent(actionCategory)">Add another set</button>

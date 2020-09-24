@@ -58,6 +58,10 @@ export class SwapComponent {
     return action ? action.key : undefined;
   }
 
+  deleteSet(actionCategory, action) {
+    delete this.actionCategories[actionCategory.key][action.key];
+  }
+
   submitSwap() {
     this.swapService.postSwap().subscribe(response => {
       let blob = new Blob([response], {type: 'text/plain'});
