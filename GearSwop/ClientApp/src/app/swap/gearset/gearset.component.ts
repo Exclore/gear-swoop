@@ -1,7 +1,7 @@
 import {SetService} from '../../services/set.service';
 import {GearService} from '../../services/gear.service';
 import { IGearItem } from '../../Interfaces/GearItem';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { SwapService } from '../../services/swap.service';
 
@@ -14,6 +14,8 @@ import { SwapService } from '../../services/swap.service';
 export class GearsetComponent implements OnInit {
 
   @Input() action;
+  @Input() actionCategory;
+  @Output() deleteEvent = new EventEmitter<any>();
   set;
 
   gearSelector = new FormControl('');
@@ -127,6 +129,10 @@ export class GearsetComponent implements OnInit {
     this.setService.updateSetMode(this.setMode);
     this.setService.updateSetName(this.setName);
     this.setService.postActiveGearSet();
+  }
+
+  deleteSet() {
+    this.deleteEvent.next({ actionCategory: this.actionCategory, action: this.action });
   }
 
   editSet() {

@@ -58,8 +58,8 @@ export class SwapComponent {
     return action ? action.key : undefined;
   }
 
-  deleteSet(actionCategory, action) {
-    delete this.actionCategories[actionCategory.key][action.key];
+  deleteSet($event) {
+    delete this.actionCategories[$event.actionCategory.key][$event.action.key];
   }
 
   submitSwap() {

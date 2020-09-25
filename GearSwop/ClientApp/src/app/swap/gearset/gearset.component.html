@@ -17,15 +17,22 @@
             <mat-label>Set Name</mat-label>
             <input matInput [(ngModel)]="setName" placeholder="Set Name" name="setNamer">
           </mat-form-field>
-          <div class="save-button">
-            <button mat-raised-button type="submit">Create Set</button>
+          <div class="modify-buttons">
+            <button mat-raised-button type="submit">Edit Gear</button>
+            <div (click)="deleteSet()" class="delete-button">
+              <i class="fa fa-trash-o"></i>
+            </div>
           </div>
         </form>
       </div>
       <div *ngIf="formComplete">
-        <div class="set-name">
-          {{setName}}
-          <img src="../../../assets/edit-icon.png" *ngIf="formComplete" (click)="editSet()" />
+        <div class="set-header">
+          <div class="edit-button" *ngIf="formComplete" (click)="editSet()">
+            <i class="fa fa-pencil-square-o"></i>
+          </div>
+          <div class="set-name">
+            {{setName}}
+          </div>
         </div>
 
         <div class="gear-set-display">
