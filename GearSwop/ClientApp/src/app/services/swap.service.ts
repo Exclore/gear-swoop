@@ -90,7 +90,7 @@ export class SwapService {
   postSwap() {
     this.processSwap();
     let swapJson = JSON.stringify(this.swap);
-
+    console.log(this.swap);
     this.cookieService.set('GearSwoop-' + this.characterName.value + '-' + this.characterJob.value, swapJson, null, null, null, true, 'None');
 
     const httpOptions = {

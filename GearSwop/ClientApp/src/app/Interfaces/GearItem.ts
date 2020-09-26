@@ -1,5 +1,5 @@
 export interface IGearItem {
-  itemId: number;
+  itemId?: number;
   name?: string;
   lName?: string;
   slots?: string;

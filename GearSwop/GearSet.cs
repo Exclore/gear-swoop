@@ -4,22 +4,22 @@
     {
         public string Mode { get; set; }
         public string SetName { get; set; }
-        public string Main { get; set; }
-        public string Sub { get; set; }
-        public string Ranged { get; set; }
-        public string Ammo { get; set; }
-        public string Head { get; set; }
-        public string Body { get; set; }
-        public string Hands { get; set; }
-        public string Legs { get; set; }
-        public string Feet { get; set; }
-        public string Neck { get; set; }
-        public string Waist { get; set; }
-        public string LeftEar { get; set; }
-        public string RightEar { get; set; }
-        public string LeftRing { get; set; }
-        public string RightRing { get; set; }
-        public string Back { get; set; }
+        public GearItem Main { get; set; }
+        public GearItem Sub { get; set; }
+        public GearItem Ranged { get; set; }
+        public GearItem Ammo { get; set; }
+        public GearItem Head { get; set; }
+        public GearItem Body { get; set; }
+        public GearItem Hands { get; set; }
+        public GearItem Legs { get; set; }
+        public GearItem Feet { get; set; }
+        public GearItem Neck { get; set; }
+        public GearItem Waist { get; set; }
+        public GearItem LeftEar { get; set; }
+        public GearItem RightEar { get; set; }
+        public GearItem LeftRing { get; set; }
+        public GearItem RightRing { get; set; }
+        public GearItem Back { get; set; }
     }
 
     public class GearItem

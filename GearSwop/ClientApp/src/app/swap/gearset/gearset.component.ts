@@ -114,9 +114,6 @@ export class GearsetComponent implements OnInit {
       this.itemPreviewData = x;
       this.gearImageUrls[this.slot] = 'https://static.ffxiah.com/images/icon/' + x.itemId + '.png';
       this.currentItemAugs = this.gearService.getAugmentsForCurrentItem(this.gearSelector.value);
-      console.log(this.currentItemAugs);
-      console.log(this.currentItemAugs.length);
-      console.log(this.currentItemAugs[0]);
       if (this.currentItemAugs.length != 0 || (this.currentItemAugs.length == 0 && this.currentItemAugs[0] != undefined)) {
         this.augmentsPresent = true;
       }
@@ -126,7 +123,6 @@ export class GearsetComponent implements OnInit {
   }
 
   augmentSelected($event) {
-    console.log($event);
     this.setService.updateAugment(this.slot, $event.value);
   }
 

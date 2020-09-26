@@ -55,7 +55,6 @@ export class GearService {
     let items = this.itemMap.filter(x => x.itemLongName.toLowerCase() == itemName.toLowerCase() || x.itemShortName.toLowerCase() == itemName.toLowerCase());
     let augments = [];
     for (let i = 0; i < items.length; i++) {
-      console.log(items[i].augments);
       if (items[i].augments != '\r') {
         augments.push(items[i].augments);
       }

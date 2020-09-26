@@ -32,11 +32,12 @@ export class SetService {
   constructor(private gearService: GearService, private swapService: SwapService) { }
 
   updateSet(slot, item) {
-    this.activeSet[slot] = item;
+    let currentGearItem: IGearItem = { name: item, slots: slot };
+    this.activeSet[slot] = currentGearItem;
+    console.log(this.activeSet);
   }
 
   updateAugment(slot, augment) {
-    console.log(this.activeSet);
     this.activeSet[slot].augments = augment;
   }
 
@@ -66,6 +67,5 @@ export class SetService {
 
   postActiveGearSet() {
     this.swapService.addSetToSwap(this.activeSet);
-    console.log(this.activeSet);
   }
 }
