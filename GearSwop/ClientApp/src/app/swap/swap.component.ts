@@ -60,6 +60,7 @@ export class SwapComponent {
 
   deleteSet($event) {
     delete this.actionCategories[$event.actionCategory.key][$event.action.key];
+    this.swapService.removeSetFromSwap($event.action.value);
   }
 
   submitSwap() {

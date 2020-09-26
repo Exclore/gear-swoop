@@ -67,6 +67,10 @@ export class SwapService {
     this.gearSets[setIndex] = set;
   }
 
+  removeSetFromSwap(action) {
+    this.gearSets = this.gearSets.filter(x => x.SetName !== action);
+  }
+
   containsSet(obj, gearset) {
     let i;
     for (i = 0; i < gearset.length; i++) {
