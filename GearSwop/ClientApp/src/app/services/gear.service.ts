@@ -80,6 +80,9 @@ export class GearService {
     let crossReferencedMap: IItemMap[] = [];
     for (let gearItemName of userGear) {
       crossReferencedMap.push(this.itemMap.find(x => x.itemLongName.toLowerCase() == gearItemName['name'].toLowerCase() || x.itemShortName.toLowerCase() == gearItemName['name'].toLowerCase()));
+      if (gearItemName.augments !== "" && crossReferencedMap[crossReferencedMap.length - 1] !== undefined) {
+        crossReferencedMap[crossReferencedMap.length-1].augments = gearItemName.augments;
+      }
     }
     return crossReferencedMap.filter(x => x != undefined);
   }
