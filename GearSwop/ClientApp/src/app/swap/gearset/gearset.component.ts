@@ -112,6 +112,7 @@ export class GearsetComponent implements OnInit {
       this.itemPreviewData = x;
       this.gearImageUrls[this.slot] = 'https://static.ffxiah.com/images/icon/' + x.itemId + '.png';
       this.setService.updateSet(this.slot, $event.option.value);
+      this.updateSet();
     });
   }
 
@@ -122,10 +123,10 @@ export class GearsetComponent implements OnInit {
 
   submitSetSetup() {
     this.formComplete = true;
+    this.updateSet();
   }
 
-  submitSet() {
-    this.setSaved = true;
+  updateSet() {
     this.setService.updateSetMode(this.setMode);
     this.setService.updateSetName(this.setName);
     this.setService.postActiveGearSet();

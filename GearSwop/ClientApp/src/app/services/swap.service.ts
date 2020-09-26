@@ -16,7 +16,7 @@ export class SwapService {
   private gearSets: Array<IGearSet> = [];
   private swap: ISwap = new class implements ISwap {
     CharacterName: string;
-    GearSets: Array<IGearSet>;
+    GearSets: Array<IGearSet> = [];
     CharacterJob: string;
   };
   cookieExists = false;
@@ -34,7 +34,6 @@ export class SwapService {
     if (this.cookieService.check('GearSwoop-' + charName + '-' + charJob)) {
       this.cookieExists = true;
       let tempSwap = JSON.parse(this.cookieService.get('GearSwoop-' + charName + '-' + charJob));
-      console.log(tempSwap);
       this.swap = tempSwap;
       this.tempGearSets = this.swap.GearSets;
     }
@@ -60,7 +59,22 @@ export class SwapService {
   }
 
   addSetToSwap(set: IGearSet) {
-    this.gearSets.push(set);
+    let setIndex = this.containsSet(set, this.gearSets);
+    if (setIndex == -1) {
+      this.gearSets.push(set);
+      return;
+    }
+    this.gearSets[setIndex] = set;
+  }
+
+  containsSet(obj, gearset) {
+    let i;
+    for (i = 0; i < gearset.length; i++) {
+      if (gearset[i] === obj) {
+        return i;
+      }
+    }
+    return -1;
   }
 
   processSwap() {
