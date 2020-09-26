@@ -51,6 +51,18 @@ export class GearService {
       );
   }
 
+  getAugmentsForCurrentItem(itemName) {
+    let items = this.itemMap.filter(x => x.itemLongName.toLowerCase() == itemName.toLowerCase() || x.itemShortName.toLowerCase() == itemName.toLowerCase());
+    let augments = [];
+    for (let i = 0; i < items.length; i++) {
+      console.log(items[i].augments);
+      if (items[i].augments != '\r') {
+        augments.push(items[i].augments);
+      }
+    }
+    return augments;
+  }
+
   getPersonalGearSuggestions(file) {
     let userGear = this.parseUserGearFile(file);
     this.userItemMap = this.crossReferenceUserGear(userGear);
@@ -78,10 +90,14 @@ export class GearService {
 
   private crossReferenceUserGear(userGear) {
     let crossReferencedMap: IItemMap[] = [];
-    for (let gearItemName of userGear) {
-      crossReferencedMap.push(this.itemMap.find(x => x.itemLongName.toLowerCase() == gearItemName['name'].toLowerCase() || x.itemShortName.toLowerCase() == gearItemName['name'].toLowerCase()));
-      if (gearItemName.augments !== "" && crossReferencedMap[crossReferencedMap.length - 1] !== undefined) {
-        crossReferencedMap[crossReferencedMap.length-1].augments = gearItemName.augments;
+    for (let userItem of userGear) {
+      let foundItem = this.itemMap.find(x => x.itemLongName.toLowerCase() == userItem['name'].toLowerCase() || x.itemShortName.toLowerCase() == userItem['name'].toLowerCase())
+      if (foundItem !== undefined) {
+        let referencedItem = Object.assign({}, foundItem);
+        if (userItem.augments !== "") {
+          referencedItem.augments = userItem.augments;
+        }
+        crossReferencedMap.push(referencedItem);
       }
     }
     return crossReferencedMap.filter(x => x != undefined);

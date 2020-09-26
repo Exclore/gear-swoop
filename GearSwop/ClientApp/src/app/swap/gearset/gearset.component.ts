@@ -17,7 +17,8 @@ export class GearsetComponent implements OnInit {
   @Input() actionCategory;
   @Output() deleteEvent = new EventEmitter<any>();
   set;
-
+  currentItemAugs;
+  augmentsPresent = false;
   gearSelector = new FormControl('');
   itemPreviewData: IGearItem;
   autocompleteOptions: string[];
@@ -97,6 +98,7 @@ export class GearsetComponent implements OnInit {
     this.displayGearSelection = true;
     this.slot = slot;
     this.setService.setActiveSlot(this.slot);
+    this.augmentsPresent = false;
   }
 
   closeGearSelection() {
@@ -111,14 +113,28 @@ export class GearsetComponent implements OnInit {
     this.gearService.getGearInfoByItemName($event.option.value).subscribe(x => {
       this.itemPreviewData = x;
       this.gearImageUrls[this.slot] = 'https://static.ffxiah.com/images/icon/' + x.itemId + '.png';
+      this.currentItemAugs = this.gearService.getAugmentsForCurrentItem(this.gearSelector.value);
+      console.log(this.currentItemAugs);
+      console.log(this.currentItemAugs.length);
+      console.log(this.currentItemAugs[0]);
+      if (this.currentItemAugs.length != 0 || (this.currentItemAugs.length == 0 && this.currentItemAugs[0] != undefined)) {
+        this.augmentsPresent = true;
+      }
       this.setService.updateSet(this.slot, $event.option.value);
       this.updateSet();
     });
   }
 
+  augmentSelected($event) {
+    console.log($event);
+    this.setService.updateAugment(this.slot, $event.value);
+  }
+
   getGearSuggestions() {
     this.gearService.GetGearAutocompleteSuggestions(this.currentJob, this.slot, this.gearSelector.value)
-      .subscribe(x => this.autocompleteOptions = x);
+      .subscribe(x => {
+        this.autocompleteOptions = x;
+      });
   }
 
   submitSetSetup() {

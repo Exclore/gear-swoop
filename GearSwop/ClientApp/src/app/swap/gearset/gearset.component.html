@@ -69,6 +69,12 @@
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>
+          <mat-form-field *ngIf="augmentsPresent">
+            <mat-label>Augments</mat-label>
+            <mat-select (selectionChange)="augmentSelected($event)">
+              <mat-option *ngFor="let augment of currentItemAugs" [value]="augment">{{augment}}</mat-option>
+            </mat-select>
+          </mat-form-field>
         </form>
       </mat-card-content>
     </div>

@@ -35,6 +35,11 @@ export class SetService {
     this.activeSet[slot] = item;
   }
 
+  updateAugment(slot, augment) {
+    console.log(this.activeSet);
+    this.activeSet[slot].augments = augment;
+  }
+
   setActiveSlot(slot: string) {
     this.activeSlot.next(slot);
   }
@@ -61,5 +66,6 @@ export class SetService {
 
   postActiveGearSet() {
     this.swapService.addSetToSwap(this.activeSet);
+    console.log(this.activeSet);
   }
 }

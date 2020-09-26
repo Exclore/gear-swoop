@@ -8,4 +8,5 @@ export interface IGearItem {
   lvl?: string;
   description?: string;
   itemLevel?: string;
+  augments?: string;
 }
