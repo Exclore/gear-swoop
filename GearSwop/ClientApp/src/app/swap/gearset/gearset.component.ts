@@ -74,7 +74,6 @@ export class GearsetComponent implements OnInit {
 
     if (this.swapService.cookieExists && this.swapService.tempGearSets.length != 0) {
       this.set = this.swapService.getTempRebuildGearset();
-      console.log(this.set);
       this.setName = this.set.SetName;
       this.setMode = this.set.Mode;
       this.formComplete = true;
