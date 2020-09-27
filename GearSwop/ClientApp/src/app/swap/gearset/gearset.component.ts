@@ -72,14 +72,16 @@ export class GearsetComponent implements OnInit {
   ngOnInit() {
     this.swapService.getCharacterJob().subscribe(x => this.currentJob = x);
 
+    console.log(this.action);
+    console.log(this.actionCategory);
     if (this.swapService.cookieExists && this.swapService.tempGearSets.length != 0) {
       this.set = this.swapService.getTempRebuildGearset();
       this.formComplete = true;
       this.buildSetFromCookie();
     }
     if (JSON.stringify(this.action.value) !== '{}') {
-      this.setName = this.action.value;
-      this.setMode = 'TEST'; //TODO: Figure out how to get the set mode here
+      this.setName = this.action.value.Name;
+      this.setMode = this.action.value.Mode;
       this.formComplete = true;
     }
   }

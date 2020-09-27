@@ -7,8 +7,8 @@
           <mat-form-field class="title-form">
             <mat-label>Set Mode</mat-label>
             <mat-select [(ngModel)]="setMode" (change)="modeSelection($event.value)" name="setModeSelector">
-              <mat-option value="Precast">Precast</mat-option>
-              <mat-option value="Midcast">Midcast</mat-option>
+              <mat-option value="precast">Precast</mat-option>
+              <mat-option value="midcast">Midcast</mat-option>
               <mat-option value="idle">Idle</mat-option>
               <mat-option value="engaged">Engaged</mat-option>
             </mat-select>

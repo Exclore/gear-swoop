@@ -32,6 +32,7 @@ export class SwapComponent {
     this.swapService.setNameJob(this.jobNameForm.value);
     this.swapService.rebuildSwapFromCookie(this.jobNameForm.get('characterName').value, this.jobNameForm.get('job').value);
     this.actionCategories = JobTemplates[this.jobNameForm.get('job').value];
+    console.log(this.actionCategories);
     this.jobNameSet = true;
   }
 
