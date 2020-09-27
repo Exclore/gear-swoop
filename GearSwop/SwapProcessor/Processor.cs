@@ -60,7 +60,11 @@ namespace GearSwop.SwapProcessor
 
             foreach(GearSet rawSet in rawSets)
             {
-                var processedSet = $"\tsets.{rawSet.Mode}"; 
+                var processedSet = $"\tsets";
+                if (rawSet.Mode != "none")
+                {
+                    processedSet += $"[\"{rawSet.Mode}\"]";
+                }
                 var names = rawSet.SetName.Split(".");
                 foreach(var name in names)
                 {

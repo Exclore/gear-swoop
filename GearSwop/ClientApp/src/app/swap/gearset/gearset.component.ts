@@ -72,10 +72,11 @@ export class GearsetComponent implements OnInit {
   ngOnInit() {
     this.swapService.getCharacterJob().subscribe(x => this.currentJob = x);
 
-    console.log(this.action);
-    console.log(this.actionCategory);
     if (this.swapService.cookieExists && this.swapService.tempGearSets.length != 0) {
       this.set = this.swapService.getTempRebuildGearset();
+      console.log(this.set);
+      this.setName = this.set.SetName;
+      this.setMode = this.set.Mode;
       this.formComplete = true;
       this.buildSetFromCookie();
     }
@@ -88,7 +89,7 @@ export class GearsetComponent implements OnInit {
 
   buildSetFromCookie() {
     for (let slot of Object.keys(this.set)) {
-      this.gearService.getGearInfoByItemName(this.set[slot]).subscribe(x => {
+      this.gearService.getGearInfoByItemName(this.set[slot].name).subscribe(x => {
         this.itemPreviewData = x;
         this.gearImageUrls[slot] = 'https://static.ffxiah.com/images/icon/' + x.itemId + '.png';
         this.setService.updateSet(slot, this.set[slot]);
