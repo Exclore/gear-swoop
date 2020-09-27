@@ -34,7 +34,6 @@ export class SetService {
   updateSet(slot, item) {
     let currentGearItem: IGearItem = { name: item, slots: slot };
     this.activeSet[slot] = currentGearItem;
-    console.log(this.activeSet);
   }
 
   updateAugment(slot, augment) {
