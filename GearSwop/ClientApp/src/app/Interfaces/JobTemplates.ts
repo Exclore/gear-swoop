@@ -18,7 +18,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //BLU WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }
@@ -41,7 +43,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //BST WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }
@@ -55,7 +59,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //COR WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }
@@ -65,7 +71,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //DNC WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }
@@ -75,7 +83,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //DRG WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }
@@ -85,7 +95,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //DRK WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }
@@ -110,7 +122,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //MNK WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }
@@ -120,7 +134,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //NIN WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     },
@@ -139,7 +155,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //PLD WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }
@@ -149,7 +167,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //PUP WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }
@@ -171,7 +191,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //PLD WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }
@@ -185,7 +207,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //RNG WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }
@@ -198,7 +222,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //RUN WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }
@@ -208,7 +234,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //SAM WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }
@@ -233,7 +261,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //WAR WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }
@@ -260,7 +290,9 @@ export var JobTemplates: { [key: string]: { [key: string]: { [key: string]: { [k
     'Engaged Sets': {
       'Engaged': { 'Name': 'engaged', 'Mode': 'none' }
     },
-    'Weaponskill Sets': {}, //THF WS
+    'Weaponskill Sets': {
+      'Base Weaponskill Set': { 'Name': 'WS', 'Mode': 'precast' }
+    },
     'Idle Set': {
       'Idle': { 'Name': 'idle', 'Mode': 'none' }
     }

@@ -60,8 +60,13 @@ namespace GearSwop.SwapProcessor
 
             foreach(GearSet rawSet in rawSets)
             {
-                
-                var processedSet = $"\tsets.{rawSet.Mode}.{rawSet.SetName} = {{";
+                var processedSet = $"\tsets.{rawSet.Mode}"; 
+                var names = rawSet.SetName.Split(".");
+                foreach(var name in names)
+                {
+                    processedSet += $"[\"{name}\"]";
+                }
+                processedSet += $" = {{";
                 foreach(string key in keyMap.Keys.ToArray<string>())
                 {
                     var item = (GearItem)rawSet.GetType().GetProperty(key).GetValue(rawSet);
